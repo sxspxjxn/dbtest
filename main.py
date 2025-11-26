@@ -64,7 +64,7 @@ def test():
         print('testing route db error:', e)
         return 'db error', 500
 @app.teardown_appcontext
-def teardown():
+def teardown(exception):
     if hasattr(g, 'db'):
         g.db.close()
 if __name__ == '__main__':
